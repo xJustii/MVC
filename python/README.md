@@ -1,1 +1,1 @@
-# MVC
+$ python -m django --version
