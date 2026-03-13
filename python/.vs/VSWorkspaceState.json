@@ -2,8 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\djangotutorial",
-    "\\djangotutorial\\polls"
+    "\\djangotutorial\\polls\\static",
+    "\\djangotutorial\\polls\\static\\polls",
+    "\\djangotutorial\\polls\\templates",
+    "\\djangotutorial\\polls\\templates\\polls",
+    "\\djangotutorial\\polls\\__pycache__",
+    "\\djangotutorial\\templates",
+    "\\djangotutorial\\templates\\admin"
   ],
-  "SelectedNode": "\\djangotutorial\\polls\\urls.py",
+  "SelectedNode": "\\djangotutorial\\templates\\admin\\base_site.html",
   "PreviewInSolutionExplorer": false
 }
