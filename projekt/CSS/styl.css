@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff0f5;
+    color: #4a0026;
+    padding: 20px;
+}
+
+.ramka {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 102, 178, 0.2);
+}
+
+h1, h2 {
+    color: #cc0066;
+    text-align: center;
+}
+
+.szukanie {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+input, select {
+    padding: 8px;
+    border: 2px solid #ff66b2;
+    border-radius: 6px;
+}
+
+.guzik {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-roz {
+    background-color: #ff66b2;
+    color: white;
+}
+
+    .btn-roz:hover {
+        background-color: #cc0066;
+    }
+
+.btn-szary {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.btn-usun {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ffe6f2;
+}
+
+th {
+    background-color: #ff66b2;
+    color: white;
+}
+
+tr:hover {
+    background-color: #ffe6f2;
+}
+
+.pole-formularza {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}

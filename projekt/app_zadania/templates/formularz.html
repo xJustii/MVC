@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Zarządzaj Zadaniem</title>
+    <link rel="stylesheet" href="{% static 'styl.css' %}">
+</head>
+<body>
+    <div class="ramka" style="max-width: 450px;">
+        <h2>Dane Zadania</h2>
+        {% if messages %}
+        <div style="background-color: #ffcccc; color: #990033; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-weight: bold; text-align: center;">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="pole-formularza">
+                <label>Opis:</label>
+                <input type="text" name="opis" value="{{ zadanie.opis|default:'' }}" required>
+            </div>
+            <div class="pole-formularza">
+                <label>Termin wykonania:</label>
+                <input type="date" name="termin" value="{{ czysta_data }}" required>
+            </div>
+            <div class="pole-formularza">
+                <label>Status zadania:</label>
+                <select name="status">
+                    {% for klucz, wartosc in statusy %}
+                    <option value="{{ klucz }}" {% if zadanie.status == klucz %}selected{% endif %}>{{ wartosc }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button type="submit" class="guzik btn-roz">Zapisz</button>
+                <a href="{% url 'url_lista' %}" class="guzik btn-szary">Anuluj</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

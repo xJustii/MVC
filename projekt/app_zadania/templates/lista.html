@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania Domowe</title>
+    <link rel="stylesheet" href="{% static 'styl.css' %}">
+</head>
+<body>
+    <div class="ramka">
+        <h1>Zadania Domowe</h1>
+
+        <form method="GET" class="szukanie">
+            <input type="text" name="szukaj" placeholder="Wyszukaj zadanie..." value="{{ request.GET.szukaj|default:'' }}">
+            <select name="filtr_status">
+                <option value="">Wszystkie statusy</option>
+                <option value="Nowe" {% if request.GET.filtr_status == 'Nowe' %}selected{% endif %}>Nowe</option>
+                <option value="W trakcie" {% if request.GET.filtr_status == 'W trakcie' %}selected{% endif %}>W trakcie</option>
+                <option value="Zakończone" {% if request.GET.filtr_status == 'Zakończone' %}selected{% endif %}>Zakończone</option>
+            </select>
+            <button type="submit" class="guzik btn-roz">Filtruj</button>
+            <a href="{% url 'url_lista' %}" class="guzik btn-szary">Reset</a>
+        </form>
+
+        <div style="text-align: right; margin-bottom: 15px;">
+            <a href="{% url 'url_dodaj' %}" class="guzik btn-roz">+ Dodaj Zadanie</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Opis</th>
+                    <th>Termin</th>
+                    <th>Status</th>
+                    <th style="width: 150px; text-align: center;">Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for z in zadania %}
+                <tr>
+                    <td>{{ z.opis }}</td>
+                    <td>{{ z.termin }}</td>
+                    <td><strong>{{ z.status }}</strong></td>
+                    <td style="white-space: nowrap; text-align: center;">
+                        <a href="{% url 'url_edytuj' z.pk %}" class="guzik btn-szary" style="padding: 4px 10px; margin-right: 5px; font-size: 13px;">Edycja</a>
+                        <a href="{% url 'url_usun' z.pk %}" class="guzik btn-usun" style="padding: 4px 10px; font-size: 13px;" onclick="return confirm('Usunąć?')">Usuń</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4" style="text-align: center;">Brak zadań w bazie.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
